@@ -1,0 +1,12 @@
+import collections
+from functools import reduce
+from typing import List
+
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        def gcd(a,b):
+            while b:
+                a, b = b, a % b
+            return a
+        count = collections.Counter(deck).values()
+        return reduce(gcd, count) > 1
