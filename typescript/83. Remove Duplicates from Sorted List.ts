@@ -1,0 +1,28 @@
+
+class ListNode {
+    val: number
+    next: ListNode | null
+    constructor(val?: number, next?: ListNode | null) {
+        this.val = (val===undefined ? 0 : val)
+        this.next = (next===undefined ? null : next)
+    }
+}
+
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+    
+    let res = head;
+
+    while(head !== null){
+        if(head.next !== null){
+            if (head.val === head.next.val){
+                head.next = head.next.next
+                continue
+            }
+        }
+
+        head = head.next
+    }
+
+    return res
+
+};
